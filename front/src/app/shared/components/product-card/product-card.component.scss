@@ -1,0 +1,141 @@
+
+
+.img-wrapper {
+    width: 300px;
+    height: 500px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 25px;
+    cursor: pointer;
+    margin-right: 20px;
+}
+
+.img-wrapper:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 180%;
+    height: 100%;
+    width: 100%;
+    background: rgba(255,255,255,.3);
+    z-index: 1;
+    transform: skew(45deg);
+    transition: .5s;
+}
+
+.img-wrapper:hover:before {
+    left: -180%;
+}
+
+.img-wrapper img {
+    width: 300px;
+    height: 500px;
+
+    transition: 2s;
+    
+}
+
+.img-wrapper:hover img {
+    filter: grayscale(0%);
+    transform: scale(1.1);
+}
+
+.img-wrapper .info {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    transform: perspective(400px) rotateY(90deg);
+    transform-origin: right;
+    transition: 1s;
+    -webkit-transform: perspective(400px) rotateY(90deg);
+    -moz-transform: perspective(400px) rotateY(90deg);
+    -ms-transform: perspective(400px) rotateY(90deg);
+    -o-transform: perspective(400px) rotateY(90deg);
+}
+
+.img-wrapper:hover .info {
+    transform: perspective(400px) rotateY(0deg);
+}
+
+.img-wrapper .info h2 {
+    background: #ff562282;
+    color: #fff;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 15px;
+    font-family: monospace;
+    margin: 0;
+    padding: 5px 0;
+}
+
+.img-wrapper ul {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    background: rgba(10, 244, 69, 0);
+	
+}
+
+
+
+
+.img-wrapper ul li {
+    background: #333333b4;
+    height: 50px;
+    width: 50px;
+    margin-bottom: 10px;
+    text-align: center;
+    line-height: 50px;
+    transform: perspective(800px) rotateY(90deg);
+    transition: .5s;
+    transform-origin: left;
+    position: relative;
+    
+}
+
+.test{
+    border-bottom-right-radius: 40px;
+    
+}
+.img-wrapper ul li a {
+    color: #FF5722;
+    background: rgba(255,255,255,0);
+    text-decoration: none;
+    display: block;
+}
+
+.img-wrapper ul li i {
+    color: #f6490f;
+    background: rgba(255,255,255,0);
+    font-size: 18px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.img-wrapper ul li i:hover{
+    color: white;
+}
+
+.img-wrapper ul li span {
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+    transition: opacity 0.3s, left 0.3s;
+}
+
+.img-wrapper ul li:hover span {
+    opacity: 1;
+    left: 0;
+}
+
+.img-wrapper:hover ul li {
+    transform: perspective(800px) rotateY(0deg) scale(1.2);
+}

@@ -1,0 +1,136 @@
+
+<!--
+
+<div class="login-container" style="margin-top: 100px; margin-bottom: 100px;">
+	<mat-card>
+		<img style="border-radius: 50%;" src="https://i.pinimg.com/564x/8b/48/93/8b4893177e57eeadb0b9ac7430549e47.jpg" alt="Your Image" class="title-image">
+		<mat-card-title>Login</mat-card-title>
+		<mat-card-content>
+			<form [formGroup]="loginForm">
+				<mat-form-field appearance="outline">
+					<mat-label>Email</mat-label>
+					<input matInput formControlName="email" placeholder="Email" required>
+					<mat-error *ngIf="loginForm.get('email').invalid && loginForm.get('email').touched">
+						Please enter a valid email address.
+					</mat-error>
+				</mat-form-field>
+
+				<mat-form-field appearance="outline">
+					<mat-label>Password</mat-label>
+					<input matInput [type]="hidePassword ? 'password' : 'text'" formControlName="password"
+						placeholder="Password" required>
+					<button mat-icon-button matSuffix (click)="togglePasswordVisibility()">
+						<mat-icon>{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+					</button>
+
+					<mat-error  *ngIf="loginForm.get('password').invalid && loginForm.get('password').touched">
+						Please enter a valid password.
+					</mat-error>
+
+				</mat-form-field>
+
+				<button mat-raised-button color="primary" type="submit" [disabled]="loginForm.invalid"
+					(click)="onSubmit()">Login</button>
+			</form>
+
+			  
+			  <div class="social-icons" 
+			  style="display: flex; align-items: center;justify-content: center; padding: 10px;">
+				<a style="color: rgb(0, 132, 255);" href="https://www.facebook.com" target="_blank">
+				  <i class="fab fa-facebook"></i>
+				</a>
+				<a style="color: rgb(0, 230, 255);" href="https://www.twitter.com" target="_blank">
+				  <i class="fab fa-twitter"></i>
+				</a>
+				<a href="https://www.instagram.com" target="_blank">
+				  <i style="color: rgb(255, 94, 0);" class="fab fa-instagram"></i>
+				</a>
+				<a href="https://www.instagram.com" target="_blank">
+					<i style="color: rgb(5, 238, 145);" class="fab fa-whatsapp"></i>
+				  </a>
+			  </div>
+
+		</mat-card-content>
+
+		<mat-card-actions>
+			<button mat-button color="accent" routerLink="/signup">Don't have an account? Sign Up</button>
+		</mat-card-actions>
+
+
+	</mat-card>
+</div>
+
+-->
+
+
+<body>
+    <div class="container">
+      <div class="forms-container">
+        <div class="signin-signup">
+          <form action="" class="sign-in-form" [formGroup]="loginForm">
+            <h2 class="title">Sign In</h2>
+            <div class="input-field">
+              <i class="fas fa-user"></i>
+              <input matInput formControlName="email" placeholder="Email" required/>
+			  <mat-error *ngIf="loginForm.get('email').invalid && loginForm.get('email').touched">
+				Please enter a valid email address.
+			</mat-error>
+            </div>
+            <div class="input-field" >
+              <i class="fas fa-lock"></i>
+              <input matInput [type]="hidePassword ? 'password' : 'text'" formControlName="password"
+			  placeholder="Password" required/>
+			  
+			  <mat-error  *ngIf="loginForm.get('password').invalid && loginForm.get('password').touched">
+				Please enter a valid password.
+			</mat-error>
+            </div>
+
+			
+					
+            <input 
+			style="   background-image: linear-gradient(to right, #fc2c07 , #ec6838);"
+			mat-raised-button color="primary" type="submit" [disabled]="loginForm.invalid"
+			(click)="onSubmit()" class="btn solid" />
+
+            <p class="social-text">Or Sign in with social platforms</p>
+            <div class="social-media">
+              <a href="#" class="social-icon">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a href="#" class="social-icon">
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a href="#" class="social-icon">
+                <i class="fab fa-google"></i>
+              </a>
+              <a href="#" class="social-icon">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+            </div>
+          </form>
+
+
+          
+        </div>
+      </div>
+
+      
+      <div class="panels-container">
+
+        <div class="panel left-panel">
+            <div class="content">
+                <h3>First time here?</h3>
+                <p>Join us now to explore and experience a world of exciting opportunities!</p>
+                <button
+				
+				 (click)="onclick('signup')" class="btn transparent"  id="sign-up-btn">Sign Up</button>
+            </div>
+            <img src="../../../../assets/Assassins-Creed-PNG-Free-Image.png" class="image" alt="">
+        </div>
+
+       
+      </div>
+    </div>
+
+  </body>

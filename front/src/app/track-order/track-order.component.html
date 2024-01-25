@@ -1,0 +1,59 @@
+
+<div class="center-container"style="margin-top: 50px;">
+  <p class="title">Track</p>
+  <p class="main_title">Your Order</p>
+</div>
+
+<div class="container">
+
+  <div class="search" style="margin-bottom: 100px;">
+    <form [formGroup]="searchOrderForm" class="search-form" (submit)="submitForm()">
+      <div class="search-bar" style="background-color: rgb(164, 167, 167);">
+        <input matInput formControlName="trackingId" placeholder="Search...">
+        <button mat-button matSuffix color="primary" [disabled]="searchOrderForm.invalid">
+          <mat-icon style="font-size: 25px; color: white; margin-bottom: 5px;">search</mat-icon>
+        </button>
+      </div>
+    </form>
+  </div>
+
+  <div class="order-details-container"  style="margin-bottom: 50px; width: 600px;">
+    <mat-card style="border-radius: 30px; background-color: rgb(183, 186, 186);">
+      <mat-card-header style="border-radius: 20px;background-color: rgb(84, 83, 83); ">
+        <mat-card-title style="color: white; align-content: center; margin-bottom: 20px;">Order Details</mat-card-title>
+      </mat-card-header>
+
+      <div class="order-detail">
+        Tracking ID:
+        <strong>{{ order.trackingId }}</strong>
+      </div>
+
+      <div class="order-detail">
+        User Name:
+        <strong>{{ order.userName }}</strong>
+      </div>
+
+      <div class="order-detail">
+        Address:
+        <strong>{{ order.address }}</strong>
+      </div>
+
+      <div class="order-detail">
+        Amount:
+        <strong>{{ order.amount | currency }}</strong>
+      </div>
+
+      <div class="order-detail">
+        Status:
+        <strong>{{ order.orderStatus }}</strong>
+      </div>
+
+      <div class="order-detail">
+        Date:
+        <strong>{{ order.date | date }}</strong>
+      </div>
+
+    </mat-card>
+  </div>
+
+</div>

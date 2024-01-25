@@ -1,0 +1,152 @@
+
+<div class="wrapper">
+
+    <div *ngIf="!isCustomerLoggedIn && !isAdminLoggedIn">
+
+        <!-- Top Header Code -->
+        <nav style="cursor: pointer;">
+            <div class="menu">
+                <!-- logo -->
+                <div class="logo">
+                    <img src="https://i.pinimg.com/564x/8b/48/93/8b4893177e57eeadb0b9ac7430549e47.jpg">
+                </div>
+
+                <!-- Menu Bar Code -->
+                <input type="checkbox" id="check">
+                <label for="check" class="checkbtn">
+                    <i class="fas fa-bars"></i>
+                </label>
+                <ul>
+                    <li>
+                        <div class="MobNavBtns">
+                            <button>Shop Now</button>
+                        </div>
+                    </li>
+                    <li><a  (click)="onclick('')">Home</a></li>
+                    <li><a  (click)="onclick('order')">Track Order</a></li>
+                    <li><a  (click)="onRegisterClick()" (click)="onclick('signup')">Register</a></li>
+                    <li><a  (click)="onLoginClick()" (click)="navigatelogin('login')">Login</a>
+                    </li>
+
+                </ul>
+                <!-- Menu Bar Code End -->
+
+                <!-- Header Button Code -->
+                <div class="NavBtns">
+                    <button>Shop Now</button>
+                </div>
+                <!-- Header Button Code End -->
+            </div>
+        </nav>
+        <!-- Top Header Code End -->
+
+    </div>
+
+    <div *ngIf="isAdminLoggedIn">
+
+        <!-- Top Header Code -->
+        <nav style="cursor: pointer;">
+            <div class="menu">
+                <!-- logo -->
+                <div class="logo">
+                    <img src="https://i.pinimg.com/564x/8b/48/93/8b4893177e57eeadb0b9ac7430549e47.jpg">
+                </div>
+
+                <!-- Menu Bar Code -->
+                <input type="checkbox" id="check">
+                <label for="check" class="checkbtn">
+                    <i class="fas fa-bars"></i>
+                </label>
+                <ul>
+                    <li>
+                        <div class="MobNavBtns">
+                            <button>Shop Now</button>
+                        </div>
+                    </li>
+                    
+                        <li><a style="cursor: pointer;"  (click)="onclick('dashboard')">Dashboard</a></li>
+                        <li><a style="cursor: pointer;"  (click)="onclick('analytics')">Analytics</a></li>
+                        <li><a style="cursor: pointer;"  (click)="onclick('category')">Category</a></li>
+                        <li><a style="cursor: pointer;"  (click)="onclick('product')">Product</a></li>
+                        <li><a style="cursor: pointer;"  (click)="onclick('orders')">Orders</a></li>
+                        <li><a style="cursor: pointer;" (click)="onclick('coupons')">Coupons</a></li>
+                        <li><a  style="cursor: pointer;" (click)="onclick('post-coupon')">Post Coupon</a>
+                        </li>
+                        <li><a style="cursor: pointer;"  routerLinkActive="active" (click)="logout()">Logout</a></li>
+                    
+
+                </ul>
+                <!-- Menu Bar Code End -->
+
+                <!-- Header Button Code -->
+                <div class="NavBtns">
+                    <button>Shop Now</button>
+                </div>
+                <!-- Header Button Code End -->
+            </div>
+        </nav>
+        <!-- Top Header Code End -->
+
+
+    </div>
+
+
+    <div *ngIf="isCustomerLoggedIn ">
+
+
+        <!-- Top Header Code -->
+        <nav style="cursor: pointer;">
+            <div class="menu">
+                <!-- logo -->
+                <div class="logo">
+                    <img src="https://i.pinimg.com/564x/8b/48/93/8b4893177e57eeadb0b9ac7430549e47.jpg">
+                </div>
+
+                <!-- Menu Bar Code -->
+                <input type="checkbox" id="check">
+                <label for="check" class="checkbtn">
+                    <i class="fas fa-bars"></i>
+                </label>
+                <ul>
+                    <li>
+                        <div class="MobNavBtns">
+                            <button>Shop Now</button>
+                        </div>
+                    </li>
+                    <li><a (click)="OnClickcustomer('dashboard')" >Dashboard</a></li>
+                    <li><a (click)="OnClickcustomer('cart')">Cart</a></li>
+                    <li><a (click)="OnClickcustomer('my_orders')">Orders</a></li>
+                    <li><a (click)="OnClickcustomer('wishlist')">Wishlist</a></li>
+                    <li><a href="#" routerLink="/customer/profile" routerLinkActive="active">Profile</a></li>
+                    <li><a href="#" routerLinkActive="active" (click)="logout()">Logout</a></li>
+
+                </ul>
+                <!-- Menu Bar Code End -->
+
+                <!-- Header Button Code -->
+                <div class="NavBtns">
+                    <button>Shop Now</button>
+                </div>
+                <!-- Header Button Code End -->
+            </div>
+        </nav>
+        <!-- Top Header Code End -->
+
+
+    </div>
+
+
+    	<!-- Content Code -->
+		<div *ngIf="showContent" class="container">
+			<div class="InnerDiv">
+				<div class="center">
+					<p class="title">Welcome Gamers</p>
+					<p class="sub_des">God of War is an action-adventure game franchise created by David Jaffe at Sony's
+						Santa Monica Studio.</p>
+					<div class="btns">
+						<button>Subscribe</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Content Code End -->

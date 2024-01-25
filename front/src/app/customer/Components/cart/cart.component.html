@@ -1,0 +1,153 @@
+<!-- 
+<div class="container">
+
+<div >
+    <div class="cart-container" style="margin-top: 50px; ">
+        <div class="cart-item" *ngFor="let item of cartItems">
+            <div class="product-info">
+                <div class="product-image">
+                    <img [src]="item.Img" alt="product-image" />
+                </div>
+
+                <div class="product-details">
+                    <div class="item-row item-name" [ngClass]="{ 'highlight': item.highlighted }">
+                        {{ item.productName }}
+                    </div>
+                    <div class="item-row-decrip item-name-descrip" [ngClass]="{ 'highlight': item.highlighted }">
+                        {{ item.description }}
+                    </div>
+                    <div class="item-price">{{ item.price | currency }}</div>
+                  
+                    <div class="quantity-controls">
+                        <button mat-icon-button [disabled]="item.quantity === 1" (click)="decreaseQuantity(item)">
+                            <mat-icon
+                                style="background-color: red; color: aliceblue; border-radius: 50%;">remove_circle_outline</mat-icon>
+                        </button>
+                        <span class="quantity">{{ item.quantity }}</span>
+                        <button mat-icon-button (click)="increaseQuantity(item)">
+                            <mat-icon
+                                style="background-color: rgb(3, 108, 29); color: aliceblue;border-radius: 50%;">add_circle_outline</mat-icon>
+                        </button>
+                    </div>
+               
+
+                </div>
+
+            </div>
+        </div>
+
+        <div class="total-price">
+            Total Amount: {{ order.totalAmount | currency }}
+        </div>
+        <div class="total-price">
+            Amount: {{ order.amount | currency }}
+        </div>
+        <div *ngIf="appliedCoupon" class="total-price">
+            Applied Coupon: {{ appliedCoupon.name }}
+          </div>
+          <div style="display: flex; justify-content: center; align-items: center; margin-top: 20px;">
+            <button (click)="placeOrder()" mat-raised-button
+                    style="background-image: linear-gradient(to right, #e42200 , #ec6838);
+                     color: antiquewhite; border-radius: 50px; width: 250px;">
+              Place Order
+            </button>
+          </div>
+          
+
+
+        <div class="container" style="background-color: aliceblue;margin-top: 30px;">
+            <form  [formGroup]="couponForm" (ngSubmit)="applyCoupon()">
+                <mat-form-field style="margin-right: 10px; width: 450px; height: 30px; " appearance="outline" class="form-field">
+                    <mat-label>Code</mat-label>
+                    <input matInput type="text" placeholder="Code" formControlName="code" />
+                    <mat-error *ngIf="couponForm.get('code')?.hasError('required')">This input is required!</mat-error>
+                </mat-form-field>
+                <button  style="
+                background-image: linear-gradient(to right, #0180e1 , #03cad4);color: antiquewhite;border-radius: 50px;" mat-raised-button color="primary" type="submit">Apply Coupon</button>
+            </form>
+        </div>
+
+    </div>
+
+  
+
+
+</div>
+</div> -->
+
+<head>
+    <title>Shopping Cart</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" rel="stylesheet" />
+  
+ </head>
+
+<body>
+
+<section>
+    <div class="container">
+       <h2 class="px-5 p-2"></h2>
+       <div class="cart"  >
+          <div class="col-md-12 col-lg-10 mx-auto" >
+             <div class="cart-item" *ngFor="let item of cartItems">
+                <div class="row" >
+                   <div class="col-md-7 center-item">
+                      <img  [src]="item.Img" alt="product-image">
+                      <h5> {{ item.productName }}</h5>
+                      
+                      <h5 style="color: #959494;"> {{ item.description }}</h5>
+                   </div>
+
+                   <div class="col-md-5 center-item">
+                      <div class="input-group number-spinner">
+                         <button style="color: #959494;" mat-icon-button [disabled]="item.quantity === 1" (click)="decreaseQuantity(item)" id="phone-minus" class="btn btn-default"><i class="fas fa-minus"></i></button>
+                         <input style="color: #ff9900;" id="phone-number" type="number" min="0" class="form-control text-center" value="{{ item.quantity }}">
+                         <button style="color: #959494;" mat-icon-button (click)="increaseQuantity(item)" id="phone-plus" class="btn btn-default"><i class="fas fa-plus"></i></button>
+                      </div>
+                      <h5 style="color: #ff0000;"><span id="phone-total">{{ item.price | currency }}</span> </h5>
+                      <img  [src]="item.Img" alt="product-image" class="remove-item">
+                   </div>
+                </div>
+             </div>
+
+             <div class="cart-item">
+                <div class="row g-2">
+
+                   <div class="col-6">
+                      <h5> Total Amount:  </h5>
+                      <h5>Amount: </h5>
+                      <h5 *ngIf="appliedCoupon" style="color: #006da4; font-weight: bold;"> Coupon : {{ appliedCoupon.name }}</h5>
+                   </div>
+
+                   <div class="col-6 status">
+                      <h5 style="color: #167802; font-weight: bold;"><span id="sub-total">{{ order.totalAmount | currency }}</span></h5>
+                      <h5 style="color: #167802; font-weight: bold;"><span id="tax-amount">{{ order.amount | currency }}</span></h5>
+                      
+                   </div>
+                   
+                </div>
+             </div>
+
+             <div class="container" style="background-color: aliceblue; ">
+                <form [formGroup]="couponForm" (ngSubmit)="applyCoupon()">
+                    <mat-form-field style="margin-right: 10px; width: 450px; height: 30px;" appearance="outline" class="form-field">
+                        <mat-label>Code</mat-label>
+                        <input matInput type="text" placeholder="Code" formControlName="code" />
+                        <mat-error *ngIf="couponForm.get('code')?.hasError('required')">This input is required!</mat-error>
+                    </mat-form-field>
+                    <button style="background-image: linear-gradient(to right, #0180e1 , #03cad4); color: antiquewhite; border-radius: 50px;" mat-raised-button color="primary" type="submit">Apply Coupon</button>
+                    <button  (click)="placeOrder()" type="button" class="btn btn-success check-out" style="background-image: linear-gradient(to right, #ff5005 , #f5ba09);">Check Out</button>
+                </form>
+              
+            </div>
+          
+            
+          </div>
+       </div>
+    </div>
+ </section>
+ <script src="app.js"></script>
+</body>

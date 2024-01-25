@@ -1,0 +1,41 @@
+
+<div class="image-area">
+    <div class="img-wrapper">
+        <img [src]="product.processedImg" alt="John Wick">
+
+        <div class="info">
+
+            <h2 (click)="navigate('/customer/product/'+product.id)">Name : {{ product.name }}</h2>
+            <h2>Price : ${{ product.price }}</h2>
+            <h2>Category : {{ product.categoryName }}</h2>
+            
+
+        </div>
+
+         <!-- Check if the component is used in admin dashboard -->
+         <ng-container *ngIf="isAdminDashboard">
+            <ul>
+                <!-- Update the icon and link -->
+                <li><a (click)="navigate('/admin/product/'+product.id)"><i class="fas fa-pencil-alt"></i></a></li>
+                <li><a (click)="navigate('/admin/faq/'+product.id)"><i class="fas fa-question-circle"></i></a></li>
+                <li class="test"><a (click)="deleteProduct(product.id)"><i class="fas fa-trash-alt"></i></a></li>
+            </ul>
+        </ng-container>
+
+        <!-- Check if the component is used in customer dashboard -->
+        <ng-container *ngIf="!isAdminDashboard">
+            <ul>
+                <li style="width: 150px; display: flex; align-items: center;" class="test">
+                    <i class="fas fa-cart-plus" style="margin-left: 40px;"></i>
+                    <a (click)="addToCard(product.id)" style="margin-left: 20px;"> Add To Cart</a>
+                </li>
+            </ul>
+        </ng-container>
+        
+
+
+
+
+
+    </div>
+</div>

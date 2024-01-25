@@ -1,0 +1,147 @@
+<!-- <div class="register-container" style="margin-top: 100px; margin-bottom: 100px;">
+    <mat-card >
+        <img style="border-radius: 50%;" src="https://i.pinimg.com/564x/8b/48/93/8b4893177e57eeadb0b9ac7430549e47.jpg" alt="Your Image" class="title-image">
+      <mat-card-title>Sign Up</mat-card-title>
+      <mat-card-content>
+        <form [formGroup]="signupForm">
+          <mat-form-field appearance="outline">
+            <mat-label>Name</mat-label>
+            <input matInput formControlName="name" placeholder="Name" required>
+            <mat-error *ngIf="signupForm.get('name').invalid && signupForm.get('name').touched">
+              Please enter a valid name.
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Email</mat-label>
+            <input matInput formControlName="email" placeholder="Email" required>
+            <mat-error *ngIf="signupForm.get('email').invalid && signupForm.get('email').touched">
+              Please enter a valid email.
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Password</mat-label>
+            <input matInput type="{{ hidePassword ? 'password' : 'text' }}" formControlName="password" placeholder="Password">
+            <button mat-icon-button matSuffix (click)="togglePasswordVisibility()">
+              <mat-icon>{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+            </button>
+            <mat-error *ngIf="signupForm.get('password').invalid && signupForm.get('password').touched">
+              Please enter a valid password.
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Confirm Password</mat-label>
+            <input matInput type="{{ hidePassword ? 'password' : 'text' }}" formControlName="confirmPassword" placeholder="Password">
+            <button mat-icon-button matSuffix (click)="togglePasswordVisibility()">
+              <mat-icon>{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+            </button>
+            <mat-error *ngIf="signupForm.get('confirmPassword').invalid && signupForm.get('confirmPassword').touched">
+              Please enter a valid confirmpassword.
+            </mat-error>
+          </mat-form-field>
+
+          <button mat-raised-button color="primary"
+           style="background-color: rgb(32, 147, 242); 
+           color: white;border-radius: 50px;
+            width: 300px;" 
+           type="submit" [disabled]="signupForm.invalid" (click)="onSubmit()">
+            Sign Up
+          </button>
+          
+          
+
+          
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
+   -->
+
+<body>
+  <div class="container">
+    <div class="forms-container">
+      <div class="signin-signup">
+        <form action="" class="sign-in-form" [formGroup]="signupForm">
+          <h2 class="title">Sign Up</h2>
+          <div class="input-field">
+            <i class="fas fa-user"></i>
+            <input matInput formControlName="name" placeholder="Name" required>
+            <mat-error *ngIf="signupForm.get('name').invalid && signupForm.get('name').touched">
+              Please enter a valid name.
+            </mat-error>
+          </div>
+          <div class="input-field">
+            <i class="fas fa-mail-reply-all"></i>
+            <input matInput formControlName="email" placeholder="Email" required />
+
+            <mat-error *ngIf="signupForm.get('email').invalid && signupForm.get('email').touched">
+              Please enter a valid email.
+            </mat-error>
+          </div>
+
+          <div class="input-field">
+            <i class="fas fa-lock"></i>
+            <input matInput type="{{ hidePassword ? 'password' : 'text' }}" formControlName="password" placeholder="Password" />
+            <mat-error *ngIf="signupForm.get('password').invalid && signupForm.get('password').touched">
+              Please enter a valid password.
+            </mat-error>
+          </div>
+
+          <div class="input-field">
+            <i class="fas fa-lock"></i>
+            <input matInput type="{{ hidePassword ? 'password' : 'text' }}" formControlName="confirmPassword" placeholder="Confirm Password" />
+            <mat-error *ngIf="signupForm.get('confirmPassword').invalid && signupForm.get('confirmPassword').touched">
+              Please enter a valid confirmpassword.
+            </mat-error>
+          </div>
+
+
+
+          <input 
+          style="   background-image: linear-gradient(to right, #fc2c07 , #ec6838);"
+           type="submit" [disabled]="signupForm.invalid" (click)="onSubmit()"
+            class="btn solid" />
+
+          <p class="social-text">Or Sign in with social platforms</p>
+          <div class="social-media">
+            <a href="#" class="social-icon">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" class="social-icon">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="social-icon">
+              <i class="fab fa-google"></i>
+            </a>
+            <a href="#" class="social-icon">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+          </div>
+        </form>
+
+
+
+      </div>
+    </div>
+
+
+    <div class="panels-container">
+
+      <div class="panel left-panel">
+        <div class="content">
+          <h3>Welcome back!</h3>
+          <p>Hey!! welcome back. Log in to your account and pick up where you left off</p>
+          <button (click)="onclick('login')" class="btn transparent" id="sign-up-btn">Login</button>
+        </div>
+        <img
+        style="margin-top: 50px;"
+         src="../../../../assets/Call-of-Duty-Free-PNG-Image.png" class="image" alt="">
+      </div>
+
+
+    </div>
+  </div>
+
+</body>

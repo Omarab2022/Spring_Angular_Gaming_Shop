@@ -1,0 +1,71 @@
+<div class="container"  style="padding: 30px; margin-top: 50px; margin-bottom: 50px; text-align: center; margin: 0 auto;">
+    <mat-card style="margin-top: 250px; margin-bottom: 290px;">
+        <mat-card-content>
+            <table mat-table [dataSource]="orders" class="mat-elevation-z8">
+                <!-- Tracking ID Column -->
+                <ng-container matColumnDef="trackingId">
+                    <th mat-header-cell *matHeaderCellDef style="text-align: center; ">Tracking ID</th>
+                    <td mat-cell *matCellDef="let order" style="text-align: center; ">{{ order.trackingId }}</td>
+                </ng-container>
+
+                <!-- User Name Column -->
+                <ng-container matColumnDef="userName">
+                    <th style="text-align: center; " mat-header-cell *matHeaderCellDef>User Name</th>
+                    <td style="text-align: center; " mat-cell *matCellDef="let order">{{ order.userName }}</td>
+                </ng-container>
+
+                
+
+                <ng-container matColumnDef="amount">
+                    <th style="text-align: center; " mat-header-cell *matHeaderCellDef>Amount</th>
+                    <td style="text-align: center; " mat-cell *matCellDef="let order" class="bold-cell">{{ order.amount }}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="description">
+                    <th style="text-align: center; " mat-header-cell *matHeaderCellDef>Description</th>
+                    <td style="text-align: center; " mat-cell *matCellDef="let order">{{ order.orderDescription }}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="address">
+                    <th style="text-align: center; " mat-header-cell *matHeaderCellDef>Address</th>
+                    <td style="text-align: center; " mat-cell *matCellDef="let order">{{ order.address }}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="date">
+                    <th style="text-align: center; " mat-header-cell *matHeaderCellDef>Date</th>
+                    <td style="text-align: center; " mat-cell *matCellDef="let order">{{ order.date | date:'dd/M/yyyy' }}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="status">
+                    <th style="text-align: center; " mat-header-cell *matHeaderCellDef>Status</th>
+                    <td style="text-align: center; " mat-cell *matCellDef="let order">{{ order.Orderstatus }}</td>
+                </ng-container>
+
+
+                <ng-container matColumnDef="action">
+                    <th style="text-align: center; " mat-header-cell *matHeaderCellDef>Action</th>
+                    <td  style="text-align: center; " mat-cell *matCellDef="let order">
+                        <button mat-raised-button color="primary" [matMenuTriggerFor]="menu">Action</button>
+                        <mat-menu #menu="matMenu">
+                            <span>
+                                <button mat-menu-item (click)="changeOrderStatus(order, 'Shipped')">Shipped</button>
+                            </span>
+                            <span>
+                                <button mat-menu-item (click)="changeOrderStatus(order, 'Delivered')">Delivered</button>
+                            </span>
+                        </mat-menu>
+                    </td>
+                </ng-container>
+
+                <tr mat-header-row
+                    *matHeaderRowDef="['trackingId', 'userName', 'amount', 'description', 'address', 'date', 'status', 'action']">
+                </tr>
+
+                <tr mat-row
+                    *matRowDef="let row; columns: ['trackingId', 'userName', 'amount', 'description', 'address', 'date', 'status', 'action']">
+                </tr>
+
+            </table>
+        </mat-card-content>
+    </mat-card>
+</div>

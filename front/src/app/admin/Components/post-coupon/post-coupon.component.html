@@ -1,0 +1,55 @@
+
+
+
+  <div class="container" style="margin-top: 100px; margin-bottom: 100px;">
+
+    <div class="left">
+        <h2>Add Coupon</h2>
+  
+  
+        <form [formGroup]="couponForm" (ngSubmit)="addCoupon()">
+        
+  
+          <mat-form-field appearance="outline" class="form-field">
+            <mat-label>Name</mat-label>
+            <input matInput type="text" placeholder="Name"  formControlName="name" >
+            <mat-error *ngIf="couponForm.get('name')?.hasError('required')">This Input Is Required!</mat-error>
+          </mat-form-field>
+    
+          <mat-form-field appearance="outline" class="form-field">
+              <mat-label>Code</mat-label>
+              <input matInput type="text" placeholder="Code" formControlName="code" >
+              <mat-error *ngIf="couponForm.get('code')?.hasError('required')">This Input Is Required!</mat-error>
+            </mat-form-field>
+          
+            <mat-form-field appearance="outline" class="form-field">
+              <mat-label>Discount %
+              </mat-label>
+              <input matInput type="text" placeholder="Discount" formControlName="discount" >
+              <mat-error *ngIf="couponForm.get('discount')?.hasError('required')">This Input Is Required!</mat-error>
+            </mat-form-field>
+  
+  
+            <mat-form-field appearance="outline" class="form-field">
+              <mat-label>Expiration Date</mat-label>
+              <input matInput [matDatepicker]="picker" formControlName="expirationDate">
+              <mat-hint>MM/DD/YYYY</mat-hint>
+              <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+              <mat-error *ngIf="couponForm.get('expirationDate')?.hasError('required')">This input is required!</mat-error>
+            </mat-form-field>
+            
+    
+          <button mat-raised-button color="primary" type="submit">Add Coupon</button>
+        </form>
+    </div>
+  
+    <div class="right">
+      <div class="image-preview">
+        <div class="circle-image">
+          <img src="https://i.pinimg.com/736x/bb/40/52/bb4052ce03c211a042690a6698bbcf54.jpg" alt="Default Image" class="preview-image" >
+          
+        </div>
+      </div>
+    </div>
+  </div>
